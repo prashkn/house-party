@@ -14,7 +14,11 @@ export default function HomeScreen({ navigation }) {
         inline
         rounded
         style={masterstyles.actionbtn}
-        onPress={() => navigation.navigate("ChoosePlayers")}
+        onPress={() =>
+          navigation.navigate("ChoosePlayers", {
+            players: "",
+          })
+        }
       >
         <Text style={masterstyles.actionbtnfont}>Quick Play</Text>
       </Button>
