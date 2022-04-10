@@ -9,7 +9,7 @@ export default function DeckCard({ name, description }) {
       width: "50%",
       backgroundColor: "#83A9E3",
       borderRadius: 30,
-      marginTop: 40,
+      marginTop: 35,
       borderWidth: selected ? 5 : 0,
       borderColor: "#336BC3",
       marginRight: 15,
