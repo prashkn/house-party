@@ -3,15 +3,15 @@ import React from "react";
 export const data = [
   {
     name: "Classic",
-    description: "Classic description",
-    questions: [["Question for ", ". Hello"], [""], [""], [""], [""]],
+    description: "Classic Deck description",
+    questions: [["Example Question for ", ""]],
   },
   {
-    name: "NSFW",
-    description: "NSFW description",
+    name: "UIUC",
+    description: "UIUC Deck description",
     questions: [
-      ["Not a question for ", ". Hello"],
-      ["If you are not ", ". Hello"],
+      ["UIUC Example Question for ", "."],
+      ["Another Example Prompt from the UIUC Deck for ", "."],
     ],
   },
 ];
