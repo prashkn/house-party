@@ -1,12 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, ImageBackground } from "react-native";
 import masterstyles from "./MasterStyle";
 
 export default function CreateDeck() {
   return (
-    <View style={masterstyles.container}>
+    <ImageBackground
+      style={masterstyles.container}
+      source={require("../assets/background.png")}
+    >
       <Text style={masterstyles.header}>Create a new Deck</Text>
-    </View>
+    </ImageBackground>
   );
 }
 

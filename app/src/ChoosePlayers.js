@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  ImageBackground,
+} from "react-native";
 import masterstyles from "./MasterStyle";
 import { Button } from "react-native-ios-kit";
 import DeckCard from "./DeckCard";
@@ -20,7 +26,10 @@ export default function ChoosePlayers({ route, navigation }) {
   const [text, onChangeText] = React.useState(placeHolder);
 
   return (
-    <View style={masterstyles.container}>
+    <ImageBackground
+      style={masterstyles.container}
+      source={require("../assets/background.png")}
+    >
       <Text style={masterstyles.header}>Who's playing?</Text>
       <View style={{ flexDirection: "row" }}>
         <TextInput
@@ -58,7 +67,7 @@ export default function ChoosePlayers({ route, navigation }) {
       >
         <Text style={masterstyles.actionbtnfont}>Start Game</Text>
       </Button>
-    </View>
+    </ImageBackground>
   );
 }
 

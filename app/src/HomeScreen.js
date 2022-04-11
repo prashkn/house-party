@@ -1,11 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 import { Button } from "react-native-ios-kit";
 import masterstyles from "./MasterStyle";
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      style={styles.container}
+      source={require("../assets/background.png")}
+    >
       <Image
         style={styles.logo}
         source={require("../assets/house_party.png")}
@@ -30,7 +33,7 @@ export default function HomeScreen({ navigation }) {
       >
         <Text style={masterstyles.actionbtnfont}>Create a new Deck</Text>
       </Button>
-    </View>
+    </ImageBackground>
   );
 }
 

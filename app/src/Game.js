@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, ImageBackground, Text } from "react-native";
 import * as Animatable from "react-native-animatable";
 import masterstyles from "./MasterStyle";
 import { Button } from "react-native-ios-kit";
@@ -52,7 +52,11 @@ export default function Game({ route, navigation }) {
   };
 
   return (
-    <View style={styles.container} onTouchStart={generateNewPrompt}>
+    <ImageBackground
+      style={styles.container}
+      source={require("../assets/background.png")}
+      onTouchStart={generateNewPrompt}
+    >
       {amntOfQuestions < maxQuestionstoAsk && (
         <Animatable.Text animation={chosenAnimation} style={styles.prompt}>
           {promptedText}
@@ -75,7 +79,7 @@ export default function Game({ route, navigation }) {
           </Button>
         </Animatable.Text>
       )}
-    </View>
+    </ImageBackground>
   );
 }
 
