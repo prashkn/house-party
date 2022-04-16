@@ -18,15 +18,11 @@ export default function Game({ route, navigation }) {
   });
 
   function getRandomPlayer() {
-    const randNum = Math.floor(Math.random() * playerList.length);
+    const randNum = Math.floor(Math.random() * (playerList.length - 1));
+    while (playerList[randNum] == "")
+      randNum = Math.floor(Math.random() * (playerList.length - 1));
     return playerList[randNum];
   }
-
-  /*
-  deck.forEach((question) => {
-    promptList.push(question);
-  });
-  */
 
   const [promptedText, setPromptedText] = React.useState(promptList[0]);
   const [chosenAnimation, setChosenAnimation] = React.useState("bounce");
@@ -35,7 +31,7 @@ export default function Game({ route, navigation }) {
   const generateNewPrompt = () => {
     setAmntOfQuestions(amntOfQuestions + 1);
 
-    var randomNum = Math.floor(Math.random() * promptList.length);
+    var randomNum = Math.floor(Math.random() * (promptList.length - 1));
     const question = promptList[randomNum];
 
     let prompted = "";
@@ -75,7 +71,7 @@ export default function Game({ route, navigation }) {
               })
             }
           >
-            <Text style={masterstyles.actionbtnfont}>Create a new Deck</Text>
+            <Text style={masterstyles.actionbtnfont}>Start a new Game</Text>
           </Button>
         </Animatable.Text>
       )}
