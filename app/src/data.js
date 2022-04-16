@@ -54,6 +54,9 @@ export const data = [
         ", if you ever blacked out at Joes, take 2 penalties. If not, give out 2 penalties.",
       ],
       ["Computer Science majors take 2 penalties."],
+      ["ECE majors take 2 penalities."],
+      ["Take 1 penalty for each RSO you are in."],
+      ["", " and ", ". If you ever taken the same courses, take a penalty."],
       [
         "",
         ", if you ever went to Cracked hungover, take 2 penalties. Otherwise, give out 2 penalties.",
