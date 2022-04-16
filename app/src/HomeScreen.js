@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import { StyleSheet, Text, Alert, Image, ImageBackground } from "react-native";
 import { Button } from "react-native-ios-kit";
 import masterstyles from "./MasterStyle";
 
@@ -28,8 +28,21 @@ export default function HomeScreen({ navigation }) {
       <Button
         inline
         rounded
-        style={masterstyles.actionbtn}
-        onPress={() => navigation.navigate("CreateDeck")}
+        style={[masterstyles.actionbtn, { backgroundColor: "gray" }]}
+        onPress={() =>
+          Alert.alert(
+            "Feature Disabled",
+            "This feature is not yet avaiable. Coming out soon!",
+            [
+              {
+                text: "Cancel",
+                onPress: () => console.log("Cancel Pressed"),
+                style: "cancel",
+              },
+              { text: "OK", onPress: () => console.log("OK Pressed") },
+            ]
+          )
+        }
       >
         <Text style={masterstyles.actionbtnfont}>Create a new Deck</Text>
       </Button>
