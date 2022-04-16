@@ -9,23 +9,20 @@ export default function Game({ route, navigation }) {
   const maxQuestionstoAsk = 40;
   const { players, deck } = route.params;
 
-  const playerList = players;
-  //players.split(",").forEach((player) => playerList.push(player.trim()));
-
   const promptList = [];
   data.forEach((deck) => {
     deck.questions.forEach((question) => promptList.push(question));
   });
 
   function getRandomPlayer() {
-    let randNum = Math.floor(Math.random() * (playerList.length - 1));
-    while (playerList[randNum] == "")
-      randNum = Math.floor(Math.random() * (playerList.length - 1));
-    console.log(playerList[randNum]);
-    return playerList[randNum];
+    let randNum = Math.floor(Math.random() * (players.length - 1));
+    while (players[randNum] == "")
+      randNum = Math.floor(Math.random() * (players.length - 1));
+    console.log(players[randNum]);
+    return players[randNum];
   }
 
-  const [promptedText, setPromptedText] = React.useState(promptList[0]);
+  const [promptedText, setPromptedText] = React.useState("Tap to start!");
   const [chosenAnimation, setChosenAnimation] = React.useState("bounce");
   const [amntOfQuestions, setAmntOfQuestions] = React.useState(1);
 
@@ -55,12 +52,23 @@ export default function Game({ route, navigation }) {
       onTouchStart={generateNewPrompt}
     >
       {amntOfQuestions < maxQuestionstoAsk && (
-        <Animatable.Text animation={chosenAnimation} style={styles.prompt}>
+        <Animatable.Text
+          animation={chosenAnimation}
+          iterationDelay={3000}
+          style={styles.prompt}
+          iterationCount={"infinite"}
+        >
           {promptedText}
         </Animatable.Text>
       )}
       {amntOfQuestions >= maxQuestionstoAsk && (
-        <Animatable.Text animation={chosenAnimation} style={styles.prompt}>
+        <Animatable.Text
+          animation={chosenAnimation}
+          iterationCount={"infinite"}
+          iterationDelay={5000}
+          delay={10000}
+          style={styles.prompt}
+        >
           Game Over! {"\n"} Play Again?
           <Button
             inline
@@ -91,7 +99,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   btn: {
-    marginLeft: 40,
+    marginLeft: 25,
     marginTop: 30,
   },
 });
