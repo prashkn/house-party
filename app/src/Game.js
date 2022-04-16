@@ -9,8 +9,8 @@ export default function Game({ route, navigation }) {
   const maxQuestionstoAsk = 40;
   const { players, deck } = route.params;
 
-  const playerList = [];
-  players.split(",").forEach((player) => playerList.push(player.trim()));
+  const playerList = players;
+  //players.split(",").forEach((player) => playerList.push(player.trim()));
 
   const promptList = [];
   data.forEach((deck) => {
@@ -18,9 +18,10 @@ export default function Game({ route, navigation }) {
   });
 
   function getRandomPlayer() {
-    const randNum = Math.floor(Math.random() * (playerList.length - 1));
+    let randNum = Math.floor(Math.random() * (playerList.length - 1));
     while (playerList[randNum] == "")
       randNum = Math.floor(Math.random() * (playerList.length - 1));
+    console.log(playerList[randNum]);
     return playerList[randNum];
   }
 
@@ -65,11 +66,7 @@ export default function Game({ route, navigation }) {
             inline
             rounded
             style={[masterstyles.actionbtn, styles.btn]}
-            onPress={() =>
-              navigation.navigate("ChoosePlayers", {
-                players: playerList.join(", "),
-              })
-            }
+            onPress={() => navigation.navigate("ChoosePlayers")}
           >
             <Text style={masterstyles.actionbtnfont}>Start a new Game</Text>
           </Button>
